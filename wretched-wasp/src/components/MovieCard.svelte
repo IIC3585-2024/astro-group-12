@@ -2,9 +2,10 @@
 <script>
   export let title;
   export let genres;
-  export let imbd_id;
+  export let imdb_id;
   export let overview;
   export let release_date;
+  export let rating;
   export let streamingProviders;
   export let image;
 </script>
@@ -13,10 +14,11 @@
   <img class="movie-poster" src={image} alt={title}>
   <div class="movie-info">
       <h2 class="movie-title">{title}</h2>
-      <p class="movie-genres">{genres?.join(', ')}</p> <!-- It seems you might have forgotten to close this tag -->
+      <p class="movie-genres">{genres?.join(', ')}</p>
       <p class="movie-overview">{overview}</p>
-      <a href={`https://www.imdb.com/title/${imbd_id}`} target="_blank" class="movie-imdb-link">Ver en IMDb</a>
+      <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank" class="movie-imdb-link">Ver en IMDb</a>
       <p class="movie-release-date">Lanzamiento: {release_date}</p>
+      <p class="movie-rating">{rating}/5</p>
       <div class="movie-streaming-providers">
           Disponible en: {streamingProviders?.join(', ')}
       </div>
@@ -52,7 +54,7 @@
     color: #333;
   }
 
-  .movie-genres, .movie-overview, .movie-release-date {
+  .movie-genres, .movie-overview, .movie-release-date, .movie-rating {
     margin: 5px 0;
     color: #666;
   }
@@ -66,6 +68,11 @@
   .movie-imdb-link {
     color: #007bff;
     text-decoration: none;
+  }
+
+  .movie-rating {
+    color: #f39c12;
+    font-weight: bold;
   }
 
   .movie-imdb-link:hover {

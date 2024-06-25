@@ -11,8 +11,9 @@
         <MovieCard
           title={movie.title}
           genres={movie.genres}
-          imbd_id={movie.imbd_id}
+          imdb_id={movie.imdb_id}
           overview={movie.overview}
+          rating={movie.rating}
           release_date={movie.release_date}
           streamingProviders={movie.streamingProviders}
           image={movie.image}

@@ -3,6 +3,7 @@
   import { genresList, streamingProvidersList, starsList } from '../stores/stores.js'
   import DropdownCheckbox from './DropdownCheckbox.svelte'
   import Filterbox from './Filterbox.svelte'
+  import SearchFilter from './SearchFilter.svelte'
 
   let genres = get(genresList)
   let streamings = get(streamingProvidersList)
@@ -14,6 +15,7 @@
     <DropdownCheckbox client:idle options={genres} label="Género" color="#25C2ED" />
     <DropdownCheckbox client:idle options={streamings} label="Plataforma de streaming" color="#F64F2B" />
     <DropdownCheckbox client:idle options={stars} label="Estrellas" color="#EDC32E"/>
+    <SearchFilter client:idle/>
   </div>
   <div class="selected-filters">
     <Filterbox client:idle/>
@@ -21,6 +23,10 @@
 </div>
 
 <style>
+  .filter-list {
+    display: flex;
+    justify-content: left;
+  }
   .container {
     margin-top: 20px;
     padding: 20px;

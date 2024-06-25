@@ -7,11 +7,12 @@
       "Drama",
       "Sci-Fi"
     ],
-    "imbd_id": "tt0816692",
+    "imdb_id": "tt0816692",
     "overview": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
     "release_date": 2014,
-    "image": "https://image.tmdb.org/t/p/w500/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
-    "streamingProviders": ["Netflix", "Amazon Prime"]
+    "image": "https://picfiles.alphacoders.com/349/thumb-1920-349599.jpg",
+    "streamingProviders": ["Netflix", "Amazon Prime"],
+    "rating": 4.5
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
     "imdb_id": "tt0068646",
     "overview": "Spanning the years 1945 to 1955",
     "image": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
-    "streamingProviders": ["HBO Max"]
+    "streamingProviders": ["HBO Max"],
+    "rating": 5
   },
   {
     "id": 3,
@@ -40,7 +42,8 @@
     "imdb_id": "tt0468569",
     "overview": "Batman raises the stakes in his war on crime",
     "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-    "streamingProviders": ["Netflix", "Hulu"]
+    "streamingProviders": ["Netflix", "Hulu"],
+    "rating": 4.8
   },
   {
     "id": 4,
@@ -55,7 +58,8 @@
     "imdb_id": "tt1375666",
     "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
     "image": "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
-    "streamingProviders": ["Amazon Prime"]
+    "streamingProviders": ["Amazon Prime"],
+    "rating": 4.7
   },
   {
     "id": 5,
@@ -69,6 +73,7 @@
     "imdb_id": "tt0109830",
     "overview": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
     "image": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
-    "streamingProviders": ["Disney+", "Netflix"]
+    "streamingProviders": ["Disney+", "Netflix"],
+    "rating": 4.6
   }
 ]
