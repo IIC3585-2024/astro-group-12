@@ -1,0 +1,137 @@
+---
+  import Layout from '../../layouts/Layout.astro';
+  import Comments from '../../components/Comments.svelte';
+  import NewComment from '../../components/NewComment.jsx';
+  import { supabase } from '../../lib/supabase.ts';
+
+  const { cookies, redirect } = Astro;
+
+  const accessToken = cookies.get("sb-access-token");
+  const refreshToken = cookies.get("sb-refresh-token");
+
+  if (!accessToken || !refreshToken) {
+    return redirect("/");
+  }
+
+  const { data, error } = await supabase.auth.setSession({
+    refresh_token: refreshToken.value,
+    access_token: accessToken.value,
+  });
+
+  if (error) {
+    cookies.delete("sb-access-token", {
+      path: "/",
+    });
+    cookies.delete("sb-refresh-token", {
+      path: "/",
+    });
+
+    return redirect("/");
+  }
+
+  const email = data?.user.email;
+  const movie = {
+    image: "https://via.placeholder.com/800x400",
+    title: "Ejemplo de Título",
+    description: "Esta es una descripción de ejemplo para la película.",
+    genres: ["Acción", "Aventura"],
+    stars: 4.5,
+    releaseDate: "2023-01-01",
+  };
+---
+
+<Layout {email}>
+  <div class="container">
+    <article>
+      <h1>{movie.title}</h1>
+      <img src=`${movie.image}` alt="{movie.title}" />
+      <div class="description">
+        <p><strong>Descripción:</strong> {movie.description}</p>
+        <p><strong>Géneros:</strong> {movie.genres.join(', ')}</p>
+        <p><strong>Calificación:</strong> {movie.stars}/5</p>
+        <p><strong>Fecha de Lanzamiento:</strong> {movie.releaseDate}</p>
+      </div>
+    </article>
+    <div class="comments">
+      <Comments client:idle/>
+    </div>
+  </div>
+  <div class="middle-title">
+    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="30" height="70"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+    <h1 id="comment-title">DÉJANOS TU COMENTARIO</h1>
+    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="30" height="70"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+  </div>
+  <div class="create-comment">
+    <NewComment client:visible />
+  </div>
+  
+</Layout>
+
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+  }
+  .comments {
+    margin-top: 5%;
+    padding: 5%;
+  }
+  .description {
+    margin-top: 5%;
+    height: 100%;
+  }
+  .middle-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #f9f9f9;
+  }
+  #comment-title {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .create-comment {
+    padding: 5%;
+  }
+  article {
+    display:flex;
+    flex-direction: column;
+    justify-content: ;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+  p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  p strong {
+    color: #333;
+  }
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .arrow {
+    animation: moveVertical 1s infinite;
+  }
+</style>

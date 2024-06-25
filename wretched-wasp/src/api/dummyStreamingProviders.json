@@ -1,0 +1,23 @@
+[
+  {
+    "value": "Netflix", "selected": false
+  },
+  {
+    "value": "Hulu", "selected": false
+  },
+  {
+    "value": "Amazon Prime", "selected": false
+  },
+  {
+    "value": "HBO", "selected": false
+  },
+  {
+    "value": "Disney+", "selected": false
+  },
+  {
+    "value": "Apple TV+", "selected": false
+  },
+  {
+    "value": "HBO Max", "selected": false
+  }
+]
