@@ -51,7 +51,7 @@ export function filterSeries(series, filters) {
         case 'Plataforma de streaming':
           return serie.streaming_service == (filter.value);
         case 'Estrellas':
-          return serie.stars == filter.value;
+          return serie.stars >= filter.value;
         default:
           return true;
       }
