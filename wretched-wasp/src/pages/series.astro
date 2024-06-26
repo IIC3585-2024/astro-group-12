@@ -1,10 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Filter from '../components/Filter.astro'
-import MoviesList from '../components/MoviesList.svelte'
 import { supabase } from "../lib/supabase";
 import SerieList from '../components/SerieList.svelte'
-import AddSerieForm from '../components/AddSerieForm';
+import AddSerieForm from '../components/AddSerieForm.jsx';
 
 const { cookies, redirect } = Astro;
 
@@ -37,5 +36,5 @@ const email = data.user.email;
 <Layout {email}>
   <Filter />
   <SerieList client:load/>
-  <AddSerieForm client:load/>
+  <AddSerieForm client:visible />
 </Layout>

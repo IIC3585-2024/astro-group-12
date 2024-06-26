@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 
-const AddSerieForm = ({ onAdd }) => {
+const AddSerieForm = () => {
   const [name, setName] = useState('');
   const [streamingService, setStreamingService] = useState('');
   const [seasons, setSeasons] = useState('');
@@ -30,7 +30,6 @@ const AddSerieForm = ({ onAdd }) => {
       if (error) {
         throw error;
       }
-      onAdd();
       setName('');
       setStreamingService('');
       setSeasons('');
