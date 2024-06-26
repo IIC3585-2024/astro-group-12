@@ -6,19 +6,19 @@
   
   <div>
     <ul>
-      {#each $seriesList as movie}
-        <a href='/series/{movie.id}' >
+      {#each $seriesList as serie}
+        <a href='/series/{serie.id}'>
           <SerieCard
-            id={movie.id}
-            name={movie.name}
-            category={movie.category}
-            overview={movie.overview}
-            stars={movie.stars}
-            release_date={movie.release_date}
-            streaming_service={movie.streaming_service}
-            seasons={movie.seasons}
-            episodes_per_season={movie.episodes_per_season}
-            image={movie.image}
+            id={serie.id}
+            name={serie.name}
+            category={serie.category}
+            overview={serie.overview}
+            stars={serie.stars}
+            release_date={serie.release_date}
+            streaming_service={serie.streaming_service}
+            seasons={serie.seasons}
+            episodes_per_season={serie.episodes_per_season}
+            image={serie.image}
           />
         </a>
       {/each}

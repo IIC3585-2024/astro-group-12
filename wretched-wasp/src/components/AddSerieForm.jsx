@@ -13,9 +13,7 @@ const AddSerieForm = ({ onAdd }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Agregando serie...');
     try {
-      console.log('Agregando serie...');
       const { data, error } = await supabase.from('series').insert([
         {
           name: name,
@@ -32,13 +30,7 @@ const AddSerieForm = ({ onAdd }) => {
       if (error) {
         throw error;
       }
-
-      console.log('Serie agregada:', data);
-
-      // Llamar a la función de callback para actualizar la lista de series
       onAdd();
-
-      // Limpiar los campos del formulario después de la inserción exitosa
       setName('');
       setStreamingService('');
       setSeasons('');
@@ -51,7 +43,7 @@ const AddSerieForm = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg p-4">
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Nombre:
@@ -155,8 +147,6 @@ const AddSerieForm = ({ onAdd }) => {
           Agregar Serie
         </button>
       </div>
-
-
     </form>
   );
 };

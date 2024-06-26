@@ -8,8 +8,6 @@ const NewCommentSeries = ({ serieId, email }) => {
   const handleSubmitComment = async (event) => {
     event.preventDefault();
     try {
-      console.log('Agregando comentario...');
-
       if (!commentText || rating <= 0 || rating > 5) {
         console.error('Invalid input');
         return;
@@ -27,20 +25,17 @@ const NewCommentSeries = ({ serieId, email }) => {
       if (error) {
         throw error;
       }
-
-      console.log('Comentario agregado:', data);
       setCommentText('');
       setRating(0);
+
     } catch (error) {
       console.error('Error al agregar comentario:', error.message);
-      // nos pegamos un sleep
       await new Promise((resolve) => setTimeout(resolve, 10000));
-      // volvemos a intentar
     }
   };
 
   return (
-    <form onSubmit={handleSubmitComment} className="max-w-lg mx-auto p-8 bg-white shadow-lg rounded-lg border border-gray-200">
+    <form onSubmit={handleSubmitComment} className="max-w-lg bg-white shadow-lg rounded-lg border border-gray-200 p-4">
       <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Deja tu Comentario</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
