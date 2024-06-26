@@ -18,7 +18,7 @@
       <p class="movie-overview">{overview}</p>
       <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank" class="movie-imdb-link">Ver en IMDb</a>
       <p class="movie-release-date">Lanzamiento: {release_date}</p>
-      <p class="movie-rating">{rating}/5</p>
+      <p class="movie-rating">{rating}/10</p>
       <div class="movie-streaming-providers">
           Disponible en: {streamingProviders?.join(', ')}
       </div>

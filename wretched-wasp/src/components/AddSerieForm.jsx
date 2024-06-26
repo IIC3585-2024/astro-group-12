@@ -42,7 +42,8 @@ const AddSerieForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg p-4">
+    <form onSubmit={handleSubmit} className="max-w-lg p-6 bg-white shadow-lg rounded-lg p-4" style={{ margin: '10% 2%' }}>
+      <h1 className="text-xl" style={{ margin: '10px 0'}}>Nueva Serie</h1>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Nombre:

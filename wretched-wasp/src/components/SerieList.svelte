@@ -9,12 +9,10 @@
       {#each $seriesList as serie}
         <a href='/series/{serie.id}'>
           <SerieCard
-            id={serie.id}
             name={serie.name}
             category={serie.category}
             overview={serie.overview}
             stars={serie.stars}
-            release_date={serie.release_date}
             streaming_service={serie.streaming_service}
             seasons={serie.seasons}
             episodes_per_season={serie.episodes_per_season}

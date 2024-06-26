@@ -4,12 +4,10 @@
     export let category
     export let overview
     export let stars
-    export let release_date
     export let streaming_service
     export let seasons
     export let episodes_per_season
     export let image
-    export let id
 </script>
 
   
@@ -19,8 +17,7 @@
         <h2 class="movie-title">{name}</h2>
         <p class="movie-genres">{category}</p>
         <p class="movie-overview">{overview}</p>
-        <p class="movie-release-date">Lanzamiento: {release_date}</p>
-        <p class="movie-rating">{stars}/5</p>
+        <p class="movie-rating">{stars}/10</p>
         <p class="movie-seasons">Temporadas: {seasons}</p>
         <p class="movie-episodes-per-season">Episodios por temporada: {episodes_per_season}</p>
         <div class="movie-streaming-providers">
@@ -58,7 +55,7 @@
       color: #333;
     }
   
-    .movie-genres, .movie-overview, .movie-release-date, .movie-rating {
+    .movie-genres, .movie-overview, .movie-episodes-per-season, .movie-rating {
       margin: 5px 0;
       color: #666;
     }
