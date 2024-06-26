@@ -23,13 +23,35 @@ export function filterMovies(movies, filters) {
     filters.every(filter => {
       switch (filter.category) {
         case 'Título':
-          return movie.title.toLowerCase().includes(filter.value.toLowerCase());
+          return movie.name.toLowerCase().includes(filter.value.toLowerCase());
         case 'Género':
-          return movie.genres.includes(filter.value);
+          return movie.category.includes(filter.value);
         case 'Plataforma de streaming':
-          return movie.streamingProviders.includes(filter.value);
+          return movie.streaming_service.includes(filter.value);
         case 'Estrellas':
-          return movie.rating >= filter.value;
+          return movie.stars >= filter.value;
+        default:
+          return true;
+      }
+    })
+  );
+}
+
+
+export function filterSeries(series, filters) {
+  if (filters.length === 0) return series;
+
+  return series.filter(serie => 
+    filters.every(filter => {
+      switch (filter.category) {
+        case 'Título':
+          return serie.name.toLowerCase().includes(filter.value.toLowerCase());
+        case 'Género':
+          return serie.category == (filter.value);
+        case 'Plataforma de streaming':
+          return serie.streaming_service == (filter.value);
+        case 'Estrellas':
+          return serie.stars == filter.value;
         default:
           return true;
       }
