@@ -23,13 +23,13 @@ export function filterMovies(movies, filters) {
     filters.every(filter => {
       switch (filter.category) {
         case 'Título':
-          return movie.name.toLowerCase().includes(filter.value.toLowerCase());
+          return movie.title.toLowerCase().includes(filter.value.toLowerCase());
         case 'Género':
-          return movie.category.includes(filter.value);
+          return movie.genres.includes(filter.value);
         case 'Plataforma de streaming':
-          return movie.streaming_service.includes(filter.value);
+          return movie.streamingProviders.includes(filter.value);
         case 'Estrellas':
-          return movie.stars >= filter.value;
+          return movie.rating >= filter.value;
         default:
           return true;
       }

@@ -6,10 +6,10 @@
 
 <div>
   {#each $selectedFilters as filter}
-    <div class="filter-chip" style="background-color: {filterColor(filter.category)}" 
+    <button class="filter-chip" style="background-color: {filterColor(filter.category)}" 
       on:click={filter.category == 'Título' ? removeFilter(filter) : null}>
       {filter.value}
-    </div>
+    </button>
   {/each}
 </div>
 
