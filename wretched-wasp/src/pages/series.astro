@@ -4,6 +4,7 @@ import Filter from '../components/Filter.astro'
 import MoviesList from '../components/MoviesList.svelte'
 import { supabase } from "../lib/supabase";
 import SerieList from '../components/SerieList.svelte'
+import AddSerieForm from '../components/AddSerieForm';
 
 const { cookies, redirect } = Astro;
 
@@ -36,4 +37,5 @@ const email = data.user.email;
 <Layout {email}>
   <Filter />
   <SerieList client:load/>
+  <AddSerieForm client:load/>
 </Layout>

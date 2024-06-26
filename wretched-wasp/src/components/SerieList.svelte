@@ -7,7 +7,7 @@
   <div>
     <ul>
       {#each $seriesList as movie}
-        <a href='/names/{movie.name}' >
+        <a href='/series/{movie.id}' >
           <SerieCard
             id={movie.id}
             name={movie.name}
